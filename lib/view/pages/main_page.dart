@@ -191,7 +191,7 @@ class _MainPageState extends State<MainPage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Income',
+                                  'Expenses',
                                   style: greyFont.copyWith(
                                       fontSize: 15,
                                       fontWeight: FontWeight.w600),
@@ -238,7 +238,7 @@ class _MainPageState extends State<MainPage> {
                   color: Colors.white,
                   boxShadow: [
                     BoxShadow(
-                        blurRadius: 1, spreadRadius: 0.5, color: Colors.black26)
+                        blurRadius: 4, spreadRadius: 1, color: Colors.black26)
                   ],
                 ),
                 child: Row(
