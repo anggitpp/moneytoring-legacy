@@ -1,7 +1,24 @@
 part of 'pages.dart';
 
-class SplashPage extends StatelessWidget {
+class SplashPage extends StatefulWidget {
   @override
+  _SplashPageState createState() => _SplashPageState();
+}
+
+class _SplashPageState extends State<SplashPage> {
+  @override
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      final Duration duration = Duration(seconds: 2);
+
+      Timer(duration, () {
+        Get.to(MainPage());
+      });
+    });
+  }
+
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
