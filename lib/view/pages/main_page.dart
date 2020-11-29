@@ -257,7 +257,7 @@ class _MainPageState extends State<MainPage> {
                           image: AssetImage('assets/product.png')),
                     ),
                     Icon(
-                      Icons.donut_small,
+                      Icons.pie_chart,
                       size: 35,
                     ),
                   ],
