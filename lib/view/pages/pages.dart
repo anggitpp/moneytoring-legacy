@@ -15,3 +15,4 @@ part 'main_page.dart';
 part 'product_page.dart';
 part 'transaction_page.dart';
 part 'transaction_detail_page.dart';
+part 'statistic_page.dart';
