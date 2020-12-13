@@ -42,7 +42,9 @@ class _MainPageState extends State<MainPage> {
                             height: 40,
                             width: MediaQuery.of(context).size.width / 2 - 26,
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(8),
+                                    bottomLeft: Radius.circular(8)),
                                 color: mainColor),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -59,7 +61,9 @@ class _MainPageState extends State<MainPage> {
                             height: 40,
                             width: MediaQuery.of(context).size.width / 2 - 26,
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(8),
+                                    bottomRight: Radius.circular(8)),
                                 color: "#E5E5E5".toColor()),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
