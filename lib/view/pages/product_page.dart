@@ -72,10 +72,10 @@ class ProductPage extends StatelessWidget {
                         width: double.infinity,
                         color: greyColor,
                       ),
-                      ProductItem(),
-                      ProductItem(),
-                      ProductItem(),
-                      ProductItem(),
+                      Column(
+                        children:
+                            mockProducts.map((e) => ProductItem(e)).toList(),
+                      ),
                       SizedBox(
                         height: 50,
                       ),

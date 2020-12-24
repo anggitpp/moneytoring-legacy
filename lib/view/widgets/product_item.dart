@@ -1,6 +1,9 @@
 part of 'widgets.dart';
 
 class ProductItem extends StatelessWidget {
+  final Products products;
+
+  ProductItem(this.products);
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -17,7 +20,7 @@ class ProductItem extends StatelessWidget {
                 decoration: BoxDecoration(
                     image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: AssetImage('assets/bulb.jpg'),
+                      image: AssetImage('assets/' + products.picture),
                     ),
                     boxShadow: [
                       BoxShadow(
@@ -44,19 +47,23 @@ class ProductItem extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Bardi Smart Bulb 9W With RGB 16 Million Color',
+                          products.name,
                           style:
                               smallFont.copyWith(fontWeight: FontWeight.w600),
                         ),
                         Text(
-                          'Rp. 99.900',
+                          NumberFormat.currency(
+                                  locale: 'id-ID',
+                                  decimalDigits: 0,
+                                  symbol: 'Rp. ')
+                              .format(products.sellingPrice),
                           style: smallFont,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Stock: 10',
+                              'Stock: ' + products.stock.toString(),
                               style: smallFont,
                             ),
                           ],

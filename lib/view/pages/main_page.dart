@@ -127,12 +127,17 @@ class _MainPageState extends State<MainPage> {
                       size: 35,
                       color: mainColor,
                     ),
-                    SizedBox(
-                      height: 35,
-                      width: 35,
-                      child: Image(
-                          fit: BoxFit.cover,
-                          image: AssetImage('assets/product.png')),
+                    GestureDetector(
+                      onTap: () {
+                        Get.to(ProductPage());
+                      },
+                      child: SizedBox(
+                        height: 35,
+                        width: 35,
+                        child: Image(
+                            fit: BoxFit.cover,
+                            image: AssetImage('assets/product.png')),
+                      ),
                     ),
                     Icon(
                       Icons.pie_chart,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moneytoring/models/models.dart';
 import 'package:moneytoring/shared/shared.dart';
 import 'package:intl/intl.dart';
 import 'package:fl_chart/fl_chart.dart';
