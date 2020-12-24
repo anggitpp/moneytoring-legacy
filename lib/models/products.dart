@@ -2,6 +2,7 @@ part of 'models.dart';
 
 class Products {
   final int id;
+  final User user;
   final String name;
   final String description;
   final int stock;
@@ -11,6 +12,7 @@ class Products {
 
   Products(
       {this.id,
+      this.user,
       this.name,
       this.description,
       this.stock,
@@ -22,6 +24,7 @@ class Products {
 List<Products> mockProducts = [
   Products(
       id: 1,
+      user: mockUser[0],
       name: 'Bardi Smart Bulb 9W With RGB 16 Million Color',
       description: 'Smart bulb bardi dengan watt 9',
       purchasePrice: 99900,
@@ -30,6 +33,7 @@ List<Products> mockProducts = [
       picture: 'bulb.jpg'),
   Products(
       id: 2,
+      user: mockUser[0],
       name: 'Aquarium Kaca Bali Ukuran L',
       description: 'Aquarium ukuran L',
       purchasePrice: 40000,
@@ -38,6 +42,7 @@ List<Products> mockProducts = [
       picture: 'aquarium.jpg'),
   Products(
       id: 3,
+      user: mockUser[0],
       name: 'Aquarium Kaca Bali Ukuran XL',
       description: 'Aquarium ukuran XL',
       purchasePrice: 50000,
@@ -46,6 +51,7 @@ List<Products> mockProducts = [
       picture: 'aquarium.jpg'),
   Products(
       id: 4,
+      user: mockUser[0],
       name: 'Bardi Smart Breaker Automatic WiFi Saklar',
       description: 'Smart breaker by bardi',
       purchasePrice: 49900,
