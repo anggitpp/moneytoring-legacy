@@ -14,6 +14,10 @@ class _MainPageState extends State<MainPage> {
         statusBarIconBrightness: Brightness.dark,
       ),
     );
+
+    List<Transactions> purchaseTransactions =
+        mockTransactions.where((element) => element.category == 1).toList();
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: backColor,
@@ -85,22 +89,10 @@ class _MainPageState extends State<MainPage> {
                       Container(
                         height: MediaQuery.of(context).size.height - 380,
                         child: ListView(
-                          shrinkWrap: true,
-                          children: [
-                            SizedBox(
-                              height: 5,
-                            ),
-                            TransactionItem(),
-                            SizedBox(height: 5),
-                            TransactionItem(),
-                            SizedBox(height: 5),
-                            TransactionItem(),
-                            SizedBox(height: 5),
-                            TransactionItem(),
-                            SizedBox(height: 5),
-                            TransactionItem(),
-                          ],
-                        ),
+                            shrinkWrap: true,
+                            children: purchaseTransactions
+                                .map((e) => TransactionItem(e))
+                                .toList()),
                       ),
                     ],
                   ),

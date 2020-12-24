@@ -99,9 +99,14 @@ class ProductPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Icon(
-                      Icons.home,
-                      size: 35,
+                    GestureDetector(
+                      onTap: () {
+                        Get.to(MainPage());
+                      },
+                      child: Icon(
+                        Icons.home,
+                        size: 35,
+                      ),
                     ),
                     SizedBox(
                       height: 35,

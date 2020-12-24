@@ -9,6 +9,7 @@ class Transactions {
   final int purchasePrice;
   final int sellingPrice;
   final int quantity;
+  final int deliveryFee;
   final String fee;
   final int discount;
   final int margin;
@@ -22,6 +23,7 @@ class Transactions {
       this.purchasePrice,
       this.sellingPrice,
       this.quantity,
+      this.deliveryFee,
       this.fee,
       this.discount,
       this.margin});
@@ -47,8 +49,8 @@ List<Transactions> mockTransactions = [
     user: mockUser[0],
     category: 1,
     date: DateTime.now(),
-    purchasePrice: mockProducts[0].purchasePrice,
-    sellingPrice: mockProducts[0].sellingPrice,
+    purchasePrice: mockProducts[1].purchasePrice,
+    sellingPrice: mockProducts[1].sellingPrice,
     quantity: 1,
     fee: '2000',
     discount: 5000,
@@ -58,13 +60,13 @@ List<Transactions> mockTransactions = [
     id: 3,
     products: mockProducts[0],
     user: mockUser[0],
-    category: 1,
+    category: 2,
     date: DateTime.now(),
-    purchasePrice: mockProducts[0].purchasePrice,
-    sellingPrice: mockProducts[0].sellingPrice,
-    quantity: 1,
+    purchasePrice: mockProducts[3].purchasePrice,
+    sellingPrice: mockProducts[3].sellingPrice,
+    quantity: 50,
     fee: '2000',
-    discount: 5000,
+    deliveryFee: 100000,
     margin: 38000,
   ),
 ];
