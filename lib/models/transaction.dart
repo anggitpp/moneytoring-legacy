@@ -41,7 +41,7 @@ List<Transactions> mockTransactions = [
     quantity: 1,
     fee: '2000',
     discount: 5000,
-    margin: 38000,
+    margin: 300000,
   ),
   Transactions(
     id: 2,
@@ -54,7 +54,7 @@ List<Transactions> mockTransactions = [
     quantity: 1,
     fee: '2000',
     discount: 5000,
-    margin: 38000,
+    margin: 500000,
   ),
   Transactions(
     id: 3,
@@ -67,6 +67,6 @@ List<Transactions> mockTransactions = [
     quantity: 50,
     fee: '2000',
     deliveryFee: 100000,
-    margin: 38000,
+    margin: 3000000,
   ),
 ];

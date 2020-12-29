@@ -6,6 +6,25 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  List<Transactions> saleTransaction =
+      mockTransactions.where((element) => element.category == 1).toList();
+  List<Transactions> purchaseTransaction =
+      mockTransactions.where((element) => element.category == 2).toList();
+
+  int selectedTransaction = 1;
+
+  double totalSelling = mockTransactions
+      .where((element) => element.category == 1)
+      .toList()
+      .map((expense) => expense.margin)
+      .fold(0, (prev, amount) => prev + amount);
+
+  double totalPurchase = mockTransactions
+      .where((element) => element.category == 2)
+      .toList()
+      .map((expense) => expense.margin)
+      .fold(0, (prev, amount) => prev + amount);
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
@@ -15,9 +34,6 @@ class _MainPageState extends State<MainPage> {
       ),
     );
 
-    List<Transactions> purchaseTransactions =
-        mockTransactions.where((element) => element.category == 1).toList();
-
     return SafeArea(
       child: Scaffold(
         backgroundColor: backColor,
@@ -25,7 +41,7 @@ class _MainPageState extends State<MainPage> {
           children: [
             Column(
               children: [
-                MainHeader(),
+                MainHeader(totalPurchase, totalSelling),
                 Container(
                   width: double.infinity,
                   margin: EdgeInsets.symmetric(
@@ -42,43 +58,66 @@ class _MainPageState extends State<MainPage> {
                       ),
                       Row(
                         children: [
-                          Container(
-                            height: 40,
-                            width: MediaQuery.of(context).size.width / 2 - 26,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(8),
-                                    bottomLeft: Radius.circular(8)),
-                                color: mainColor),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'Income',
-                                  style: mediumFont.copyWith(
-                                      fontWeight: FontWeight.w600),
-                                ),
-                              ],
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                selectedTransaction = 1;
+                              });
+                            },
+                            child: Container(
+                              height: 40,
+                              width: MediaQuery.of(context).size.width / 2 - 26,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(8),
+                                      bottomLeft: Radius.circular(8)),
+                                  color: selectedTransaction == 1
+                                      ? mainColor
+                                      : "#E5E5E5".toColor()),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Sale',
+                                    style: mediumFont.copyWith(
+                                        color: selectedTransaction == 1
+                                            ? Colors.black
+                                            : "6C6C6C".toColor(),
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
-                          Container(
-                            height: 40,
-                            width: MediaQuery.of(context).size.width / 2 - 26,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                    topRight: Radius.circular(8),
-                                    bottomRight: Radius.circular(8)),
-                                color: "#E5E5E5".toColor()),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'Expenses',
-                                  style: greyFont.copyWith(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w600),
-                                ),
-                              ],
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                selectedTransaction = 2;
+                              });
+                            },
+                            child: Container(
+                              height: 40,
+                              width: MediaQuery.of(context).size.width / 2 - 26,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                      topRight: Radius.circular(8),
+                                      bottomRight: Radius.circular(8)),
+                                  color: selectedTransaction == 2
+                                      ? mainColor
+                                      : "#E5E5E5".toColor()),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "Purchase",
+                                    style: mediumFont.copyWith(
+                                        color: selectedTransaction == 2
+                                            ? Colors.black
+                                            : "6C6C6C".toColor(),
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ],
@@ -90,9 +129,13 @@ class _MainPageState extends State<MainPage> {
                         height: MediaQuery.of(context).size.height - 380,
                         child: ListView(
                             shrinkWrap: true,
-                            children: purchaseTransactions
-                                .map((e) => TransactionItem(e))
-                                .toList()),
+                            children: selectedTransaction == 1
+                                ? saleTransaction
+                                    .map((e) => TransactionItem(e))
+                                    .toList()
+                                : purchaseTransaction
+                                    .map((e) => TransactionItem(e))
+                                    .toList()),
                       ),
                     ],
                   ),

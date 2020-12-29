@@ -1,8 +1,15 @@
 part of 'widgets.dart';
 
 class MainHeader extends StatelessWidget {
+  final double totalPurchase;
+  final double totalSelling;
+
+  MainHeader(this.totalPurchase, this.totalSelling);
+
   @override
   Widget build(BuildContext context) {
+    double totalProfit = totalSelling - totalPurchase;
+
     return Container(
       width: double.infinity,
       padding: EdgeInsets.symmetric(horizontal: defaultMargin, vertical: 20),
@@ -35,7 +42,9 @@ class MainHeader extends StatelessWidget {
                 children: [
                   Text('Total Profit', style: largeFont),
                   Text(
-                    'Rp. 5.000.000',
+                    NumberFormat.currency(
+                            locale: 'id-ID', symbol: 'Rp. ', decimalDigits: 0)
+                        .format(totalProfit),
                     style: largeFont.copyWith(
                         fontWeight: FontWeight.w600, fontSize: 22),
                   ),
@@ -74,7 +83,11 @@ class MainHeader extends StatelessWidget {
                             style: greyFont.copyWith(fontSize: 18),
                           ),
                           Text(
-                            '7.000.000',
+                            NumberFormat.currency(
+                                    locale: 'id-ID',
+                                    symbol: '',
+                                    decimalDigits: 0)
+                                .format(totalPurchase),
                             style: mediumFont.copyWith(
                                 fontWeight: FontWeight.bold, fontSize: 18),
                           )
@@ -108,7 +121,11 @@ class MainHeader extends StatelessWidget {
                             style: greyFont.copyWith(fontSize: 18),
                           ),
                           Text(
-                            '7.000.000',
+                            NumberFormat.currency(
+                                    locale: 'id-ID',
+                                    symbol: '',
+                                    decimalDigits: 0)
+                                .format(totalSelling),
                             style: mediumFont.copyWith(
                                 fontWeight: FontWeight.bold, fontSize: 18),
                           )
