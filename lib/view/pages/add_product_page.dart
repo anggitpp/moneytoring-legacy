@@ -11,6 +11,27 @@ class _AddProductPageState extends State<AddProductPage> {
   TextEditingController sellingController = TextEditingController();
   TextEditingController stockController = TextEditingController();
 
+  File _image;
+  final _picker = ImagePicker();
+
+  // _imgFromCamera() async {
+  //   PickedFile image =
+  //       await _picker.getImage(source: ImageSource.camera, imageQuality: 50);
+
+  //   setState(() {
+  //     _image = File(image.path);
+  //   });
+  // }
+
+  _imgFromGallery() async {
+    PickedFile image =
+        await _picker.getImage(source: ImageSource.gallery, imageQuality: 50);
+
+    setState(() {
+      _image = File(image.path);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
@@ -55,13 +76,32 @@ class _AddProductPageState extends State<AddProductPage> {
                       image: AssetImage('assets/photo_border.png'),
                       fit: BoxFit.cover),
                 ),
-                child: Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                      image: AssetImage('assets/photo.png'),
-                      fit: BoxFit.cover,
-                    ),
+                child: GestureDetector(
+                  onTap: () {
+                    _imgFromGallery();
+                  },
+                  child: CircleAvatar(
+                    radius: 55,
+                    backgroundColor: Color(0xffFDCF09),
+                    child: _image != null
+                        ? ClipRRect(
+                            borderRadius: BorderRadius.circular(50),
+                            child: Image.file(
+                              _image,
+                              width: 100,
+                              height: 100,
+                              fit: BoxFit.cover,
+                            ),
+                          )
+                        : Container(
+                            decoration: BoxDecoration(
+                              color: Colors.grey[200],
+                              borderRadius: BorderRadius.circular(50),
+                              image: DecorationImage(
+                                image: AssetImage('assets/photo.png'),
+                              ),
+                            ),
+                          ),
                   ),
                 ),
               ),
