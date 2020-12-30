@@ -143,6 +143,22 @@ class _MainPageState extends State<MainPage> {
               ],
             ),
             Align(
+              alignment: Alignment(0.8, 0.7),
+              child: Container(
+                height: 50,
+                width: 50,
+                child: FloatingActionButton(
+                  onPressed: () {},
+                  elevation: 0,
+                  backgroundColor: mainColor,
+                  child: Icon(
+                    MdiIcons.plusThick,
+                    size: 30,
+                  ),
+                ),
+              ),
+            ),
+            Align(
               alignment: Alignment.bottomCenter,
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: defaultMargin),
