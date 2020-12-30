@@ -15,3 +15,4 @@ part 'statistic_header.dart';
 part 'sales_graph.dart';
 part 'statistic_item.dart';
 part 'main_header.dart';
+part 'selectable_transaction_item.dart';

@@ -13,8 +13,8 @@ class TransactionSelectedItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    height: 50,
-                    width: 50,
+                    height: 40,
+                    width: 40,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
                       image: DecorationImage(
@@ -30,11 +30,11 @@ class TransactionSelectedItem extends StatelessWidget {
                     children: [
                       Text(
                         'Aquarium M',
-                        style: largeFont,
+                        style: mediumFont,
                       ),
                       Text(
                         '50.000',
-                        style: greyFont.copyWith(fontSize: 18),
+                        style: greyFont.copyWith(fontSize: 15),
                       ),
                     ],
                   ),

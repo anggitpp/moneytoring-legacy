@@ -148,7 +148,9 @@ class _MainPageState extends State<MainPage> {
                 height: 50,
                 width: 50,
                 child: FloatingActionButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(TransactionPage());
+                  },
                   elevation: 0,
                   backgroundColor: mainColor,
                   child: Icon(

@@ -8,6 +8,7 @@ class Products {
   final int stock;
   final int purchasePrice;
   final int sellingPrice;
+  final int category;
   final String picture;
 
   Products(
@@ -18,6 +19,7 @@ class Products {
       this.stock,
       this.purchasePrice,
       this.sellingPrice,
+      this.category,
       this.picture});
 }
 
@@ -29,6 +31,7 @@ List<Products> mockProducts = [
       description: 'Smart bulb bardi dengan watt 9',
       purchasePrice: 99900,
       sellingPrice: 109900,
+      category: 1,
       stock: 20,
       picture: 'bulb.jpg'),
   Products(
@@ -39,6 +42,7 @@ List<Products> mockProducts = [
       purchasePrice: 40000,
       sellingPrice: 79900,
       stock: 50,
+      category: 2,
       picture: 'aquarium.jpg'),
   Products(
       id: 3,
@@ -48,6 +52,7 @@ List<Products> mockProducts = [
       purchasePrice: 50000,
       sellingPrice: 109900,
       stock: 100,
+      category: 2,
       picture: 'aquarium.jpg'),
   Products(
       id: 4,
@@ -57,5 +62,66 @@ List<Products> mockProducts = [
       purchasePrice: 49900,
       sellingPrice: 65000,
       stock: 5,
+      category: 1,
+      picture: 'breaker.jpg'),
+  Products(
+      id: 5,
+      user: mockUser[0],
+      name: 'Bardi Smart Breaker Automatic WiFi Saklar',
+      description: 'Smart breaker by bardi',
+      purchasePrice: 49900,
+      sellingPrice: 65000,
+      stock: 5,
+      category: 1,
+      picture: 'breaker.jpg'),
+  Products(
+      id: 5,
+      user: mockUser[0],
+      name: 'Bardi Smart Breaker Automatic WiFi Saklar',
+      description: 'Smart breaker by bardi',
+      purchasePrice: 49900,
+      sellingPrice: 65000,
+      stock: 5,
+      category: 1,
+      picture: 'breaker.jpg'),
+  Products(
+      id: 5,
+      user: mockUser[0],
+      name: 'Bardi Smart Breaker Automatic WiFi Saklar',
+      description: 'Smart breaker by bardi',
+      purchasePrice: 49900,
+      sellingPrice: 65000,
+      stock: 5,
+      category: 1,
+      picture: 'breaker.jpg'),
+  Products(
+      id: 5,
+      user: mockUser[0],
+      name: 'Bardi Smart Breaker Automatic WiFi Saklar',
+      description: 'Smart breaker by bardi',
+      purchasePrice: 49900,
+      sellingPrice: 65000,
+      stock: 5,
+      category: 1,
+      picture: 'breaker.jpg'),
+  Products(
+      id: 5,
+      user: mockUser[0],
+      name: 'Bardi Smart Breaker Automatic WiFi Saklar',
+      description: 'Smart breaker by bardi',
+      purchasePrice: 49900,
+      sellingPrice: 65000,
+      stock: 5,
+      category: 1,
+      picture: 'breaker.jpg'),
+  Products(
+      id: 5,
+      user: mockUser[0],
+      name: 'Bardi Smart Breaker Automatic WiFi Saklar',
+      description: 'Smart breaker by bardi',
+      purchasePrice: 49900,
+      sellingPrice: 65000,
+      stock: 5,
+      category: 1,
       picture: 'breaker.jpg'),
 ];
